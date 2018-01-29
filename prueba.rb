@@ -27,6 +27,16 @@ case opcion
         puts hash1 = {nombre => promedio}
       end
     when 2
+      for i in 0..(a.length-1)
+        alumno_i = a[i]
+        nombre = alumno_i[0]
+        inasistencias = alumno_i.count('A')
+        puts hash2 = {nombre => inasistencias}
+      end
+    when 3
       
+      end
+
+    #
     # when 3
 end
