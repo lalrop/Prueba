@@ -40,7 +40,6 @@ while opcion !=4
       when 3
         puts ' Ingrese nota para aprobar (por defecto la nota es 5)'
         nota_a = gets.chomp.to_i
-        end
         for i in 0..(a.length-1)
           alumno_i = a[i]
           nombre = alumno_i[0]
