@@ -6,13 +6,14 @@ alum
 end
 
 a = read_alum('alumnos.csv')
-print a
+puts '
+      -------------------------------------------------------------------------
 
-puts '     Seleccione una opcion de las siguientes:
-      1 : Alumnos junto con su promedio
-      2 : Numero de inasistencias
-      3 : Alumnos aprobados
-      4 : Salir'
+        Seleccione una opcion de las siguientes:
+          1 : Alumnos junto con su promedio
+          2 : Numero de inasistencias
+          3 : Alumnos aprobados
+          4 : Salir'
 
 opcion = gets.chomp.to_i
 
@@ -37,22 +38,27 @@ while opcion !=4
         end
 
       when 3
-          def aprobacion(nota)
-            for i in 0..(a.length-1)
-              alumno_i = a[i]
-              nombre = alumno_i[0]
-              notas = alumno_i[1..-1]
-              sumatoria = notas.inject(0){|sum,i| sum = sum + i.to_i}
-              promedio = sumatoria/notas.length
-              hash1 = {nombre => promedio}
-              puts nota
-
-              puts aprobacion(5)
+        puts ' Ingrese nota para aprobar (por defecto la nota es 5)'
+        nota_a = gets.chomp.to_i
+        end
+        for i in 0..(a.length-1)
+          alumno_i = a[i]
+          nombre = alumno_i[0]
+          notas = alumno_i[1..-1]
+          sumatoria = notas.inject(0){|sum,i| sum = sum + i.to_i}
+          promedio = sumatoria/notas.length
+          hash1 = {nombre => promedio}
+          aprobados = hash1.keep_if{|key,value| value >= nota_a}
+            if aprobados.empty? != true
+              puts aprobados
             end
           end
     end
 
-puts '     Seleccione una opcion de las siguientes:
+puts '
+      -------------------------------------------------------------------------
+
+        Seleccione una opcion de las siguientes:
           1 : Alumnos junto con su promedio
           2 : Numero de inasistencias
           3 : Alumnos aprobados
